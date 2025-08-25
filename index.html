@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Right Carpets & Wood Floors</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .hero-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='m0 40l40-40h-40v40zm40 0v-40h-40l40 40z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+        .nav-link.active {
+            color: #3b82f6 !important;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-4">
+                    <div class="text-2xl font-bold text-blue-600">
+                        <i class="fas fa-home mr-2"></i>RIGHT
+                    </div>
+                    <span class="text-gray-600 text-sm">CARPETS & WOOD FLOORS</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="nav-link text-gray-700 hover:text-blue-600 transition-colors active" onclick="showPage('home')">Home</a>
+                    <a href="#" class="nav-link text-gray-700 hover:text-blue-600 transition-colors" onclick="showPage('about')">About Us</a>
+                    <a href="#" class="nav-link text-gray-700 hover:text-blue-600 transition-colors" onclick="showPage('products')">Products</a>
+                    <a href="#" class="nav-link text-gray-700 hover:text-blue-600 transition-colors" onclick="showPage('contact')">Contact</a>
+                </div>
+                
+                <div class="md:hidden">
+                    <button class="text-gray-700" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden pb-4">
+                <a href="#" class="block py-2 text-gray-700 hover:text-blue-600" onclick="showPage('home')">Home</a>
+                <a href="#" class="block py-2 text-gray-700 hover:text-blue-600" onclick="showPage('about')">About Us</a>
+                <a href="#" class="block py-2 text-gray-700 hover:text-blue-600" onclick="showPage('products')">Products</a>
+                <a href="#" class="block py-2 text-gray-700 hover:text-blue-600" onclick="showPage('contact')">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+        <!-- Hero Section -->
+        <section class="gradient-bg hero-pattern pt-20 pb-16">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="text-white" data-aos="fade-right">
+                        <h1 class="text-5xl font-bold mb-6">Premium Carpets & Wood Floors</h1>
+                        <p class="text-xl mb-8 opacity-90">Transform your home with our extensive range of carpets, laminates, and vinyl flooring. Professional installation with free measuring service.</p>
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle mr-3 text-yellow-300"></i>
+                                <span>FREE Measuring & Estimate Service</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle mr-3 text-yellow-300"></i>
+                                <span>Professional Installation</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle mr-3 text-yellow-300"></i>
+                                <span>Wide Range of Styles & Colors</span>
+                            </div>
+                        </div>
+                        <button class="bg-yellow-400 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition-colors">
+                            Get Free Quote
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4" data-aos="fade-left">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=200&fit=crop" alt="Carpet" class="rounded-lg shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=300&h=200&fit=crop" alt="Laminate" class="rounded-lg shadow-lg mt-8">
+                        <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=300&h=200&fit=crop" alt="Vinyl" class="rounded-lg shadow-lg -mt-8">
+                        <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=300&h=200&fit=crop" alt="Wood Floor" class="rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">Our Featured Products</h2>
+                <div class="grid md:grid-cols-4 gap-8">
+                    <!-- Carpets -->
+                    <div class="card-hover bg-yellow-50 p-6 rounded-lg border-2 border-yellow-200" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-center">
+                            <i class="fas fa-th-large text-4xl text-blue-600 mb-4"></i>
+                            <h3 class="text-2xl font-bold text-blue-600 mb-4">CARPETS</h3>
+                            <div class="space-y-2 text-sm mb-4">
+                                <p><strong>Standard Twists</strong> from £5.99/m²</p>
+                                <p><strong>Saxony Twists</strong> from £9.99/m²</p>
+                                <p><strong>Luxury Deep Pile</strong> from £13.99/m²</p>
+                            </div>
+                            <p class="text-xs text-gray-600">Many more styles and colours in-store</p>
+                        </div>
+                    </div>
+
+                    <!-- Laminates -->
+                    <div class="card-hover bg-blue-50 p-6 rounded-lg border-2 border-blue-200" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-center">
+                            <i class="fas fa-layer-group text-4xl text-blue-600 mb-4"></i>
+                            <h3 class="text-2xl font-bold text-red-500 mb-4">LAMINATES</h3>
+                            <div class="bg-blue-500 text-white rounded-full px-4 py-2 inline-block mb-4">
+                                <span class="text-sm">from £9.99/m²</span>
+                            </div>
+                            <p class="text-sm text-gray-600">Wide choice of colours available</p>
+                        </div>
+                    </div>
+
+                    <!-- Vinyls -->
+                    <div class="card-hover bg-gray-50 p-6 rounded-lg border-2 border-gray-200" data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-center">
+                            <i class="fas fa-grip-horizontal text-4xl text-blue-600 mb-4"></i>
+                            <h3 class="text-2xl font-bold text-red-500 mb-4">VINYLS</h3>
+                            <div class="mb-4">
+                                <span class="text-lg font-bold">from £4.99/m²</span>
+                            </div>
+                            <div class="bg-red-500 text-white rounded-full px-4 py-2 inline-block">
+                                <span class="text-sm">Vinyl Roll-ends from £25.00</span>
+                            </div>
+                            <p class="text-sm text-gray-600 mt-2">Wide choice of colours and designs</p>
+                        </div>
+                    </div>
+
+                    <!-- Special Offer -->
+                    <div class="card-hover bg-red-50 p-6 rounded-lg border-2 border-red-200" data-aos="fade-up" data-aos-delay="400">
+                        <div class="text-center">
+                            <i class="fas fa-stairs text-4xl text-blue-600 mb-4"></i>
+                            <h3 class="text-xl font-bold text-blue-600 mb-4">STAIRS & LANDING CARPETED</h3>
+                            <div class="bg-red-500 text-white rounded-lg p-4 mb-4">
+                                <p class="text-sm">Just for</p>
+                                <p class="text-3xl font-bold">£150</p>
+                                <p class="text-xs">+ FREE FITTING</p>
+                                <p class="text-xs">(Based on 12m²)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section class="py-16 bg-gray-100">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-4xl font-bold mb-4">Our Services</h2>
+                    <div class="bg-blue-600 text-white py-4 px-8 rounded-lg inline-block">
+                        <h3 class="text-2xl font-bold">FREE MEASURING AND ESTIMATE SERVICE AVAILABLE</h3>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-center" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-ruler text-4xl text-blue-600 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-4">Free Measuring</h3>
+                        <p class="text-gray-600">Professional measuring service in the comfort of your own home</p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-center" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-tools text-4xl text-blue-600 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-4">Expert Installation</h3>
+                        <p class="text-gray-600">Professional installation by experienced craftsmen</p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-center" data-aos="fade-up" data-aos-delay="300">
+                        <i class="fas fa-heart text-4xl text-red-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-4">NHS Discount</h3>
+                        <p class="text-gray-600">10% discount for NHS staff as our way of saying thank you</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Info -->
+        <section class="py-16 bg-red-600 text-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div data-aos="fade-right">
+                        <h2 class="text-3xl font-bold mb-6">Visit Our Showrooms</h2>
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="text-xl font-bold">Unit 1 Albert Mill</h3>
+                                <p>Albert Place, Lower Darwen BB3 0QE</p>
+                                <p class="text-yellow-300 font-bold text-xl">01254 660600</p>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">16 Yorkshire Street</h3>
+                                <p>Burnley BB11 2DJ</p>
+                                <p class="text-yellow-300 font-bold text-xl">01282 428579</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center" data-aos="fade-left">
+                        <h3 class="text-2xl font-bold mb-4">FREE ESTIMATE & FRIENDLY HOME SERVICE</h3>
+                        <p class="mb-6">Follow us on Facebook for latest offers and updates</p>
+                        <button class="bg-white text-red-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
+                            <i class="fab fa-facebook mr-2"></i>Follow Us
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ABOUT US PAGE -->
+    <div id="about" class="page">
+        <section class="pt-20 pb-16 bg-gray-100">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h1 class="text-5xl font-bold mb-6">About Right Carpets & Wood Floors</h1>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Your trusted partner for premium flooring solutions across Lancashire</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                    <div data-aos="fade-right">
+                        <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=600&h=400&fit=crop" alt="Showroom" class="rounded-lg shadow-lg">
+                    </div>
+                    <div data-aos="fade-left">
+                        <h2 class="text-3xl font-bold mb-6">Our Story</h2>
+                        <p class="text-gray-600 mb-4">For over two decades, Right Carpets & Wood Floors has been serving the Lancashire community with premium flooring solutions. What started as a small family business has grown into a trusted name in the region.</p>
+                        <p class="text-gray-600 mb-6">We pride ourselves on offering an extensive range of carpets, laminates, vinyls, and wood flooring options to suit every taste and budget. Our commitment to quality products and exceptional customer service has made us the go-to choice for homeowners across the area.</p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-center p-4 bg-white rounded-lg shadow">
+                                <div class="text-3xl font-bold text-blue-600">20+</div>
+                                <div class="text-sm text-gray-600">Years Experience</div>
+                            </div>
+                            <div class="text-center p-4 bg-white rounded-lg shadow">
+                                <div class="text-3xl font-bold text-blue-600">5000+</div>
+                                <div class="text-sm text-gray-600">Happy Customers</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8 mb-16">
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-center" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-award text-4xl text-yellow-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-4">Quality Products</h3>
+                        <p class="text-gray-600">We source only the finest materials from trusted manufacturers to ensure longevity and beauty.</p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-center" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-users text-4xl text-blue-600 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-4">Expert Team</h3>
+                        <p class="text-gray-600">Our experienced professionals provide expert advice and flawless installation services.</p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-center" data-aos="fade-up" data-aos-delay="300">
+                        <i class="fas fa-handshake text-4xl text-green-600 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-4">Customer First</h3>
+                        <p class="text-gray-600">Your satisfaction is our priority. We go above and beyond to exceed expectations.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-up">
+                    <h2 class="text-3xl font-bold text-center mb-8">Why Choose Us?</h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <ul class="space-y-4">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                                    <span>Two convenient showroom locations</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                                    <span>Free measuring and estimation service</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                                    <span>Professional installation included</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                                    <span>Competitive pricing on all products</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="space-y-4">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                                    <span>Extensive range of styles and colors</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                                    <span>NHS staff discount available</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                                    <span>Friendly, knowledgeable staff</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                                    <span>After-sales support and warranty</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- PRODUCTS PAGE -->
+    <div id="products" class="page">
+        <section class="pt-20 pb-16">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h1 class="text-5xl font-bold mb-6">Our Product Range</h1>
+                    <p class="text-xl text-gray-600">Discover our extensive collection of premium flooring solutions</p>
+                </div>
+
+                <!-- Carpets Section -->
+                <div class="mb-16" data-aos="fade-up">
+                    <div class="bg-yellow-100 p-8 rounded-lg">
+                        <h2 class="text-4xl font-bold text-blue-600 mb-6 text-center">CARPETS</h2>
+                        <p class="text-center text-gray-600 mb-8">Many more styles and colours available in-store</p>
+                        
+                        <div class="grid md:grid-cols-3 gap-8">
+                            <div class="bg-white text-gray-900 p-6 rounded-lg text-center">
+                            <h3 class="text-2xl font-bold text-blue-600 mb-4">Room-Sized Roll-ends</h3>
+                            <div class="border-2 border-dashed border-blue-500 p-4 rounded-lg">
+                                <p class="text-sm mb-2">Many available</p>
+                                <p class="text-4xl font-bold text-blue-600">from £48.00</p>
+                                <p class="text-xs text-gray-600">as little as</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page">
+        <section class="pt-20 pb-16">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h1 class="text-5xl font-bold mb-6">Contact Us</h1>
+                    <p class="text-xl text-gray-600">Get in touch for your free estimate and friendly home service</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 mb-16">
+                    <!-- Contact Form -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-right">
+                        <h2 class="text-3xl font-bold mb-6">Get Your Free Quote</h2>
+                        <form class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                                <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                                <input type="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                                <input type="tel" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Product Interest</label>
+                                <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                    <option>Select a product</option>
+                                    <option>Carpets</option>
+                                    <option>Laminates</option>
+                                    <option>Vinyls</option>
+                                    <option>Wood Flooring</option>
+                                    <option>Stairs & Landing</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                                <textarea rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Tell us about your project..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                                Request Free Quote
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div data-aos="fade-left">
+                        <div class="bg-red-600 text-white p-8 rounded-lg mb-6">
+                            <h2 class="text-3xl font-bold mb-6">Visit Our Showrooms</h2>
+                            <div class="space-y-6">
+                                <div class="flex items-start space-x-4">
+                                    <i class="fas fa-map-marker-alt text-2xl text-yellow-300 mt-1"></i>
+                                    <div>
+                                        <h3 class="text-xl font-bold">Lower Darwen Showroom</h3>
+                                        <p class="text-lg">Unit 1 Albert Mill</p>
+                                        <p>Albert Place, Lower Darwen</p>
+                                        <p>BB3 0QE</p>
+                                        <p class="text-yellow-300 font-bold text-xl mt-2">
+                                            <i class="fas fa-phone mr-2"></i>01254 660600
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-4">
+                                    <i class="fas fa-map-marker-alt text-2xl text-yellow-300 mt-1"></i>
+                                    <div>
+                                        <h3 class="text-xl font-bold">Burnley Showroom</h3>
+                                        <p class="text-lg">16 Yorkshire Street</p>
+                                        <p>Burnley</p>
+                                        <p>BB11 2DJ</p>
+                                        <p class="text-yellow-300 font-bold text-xl mt-2">
+                                            <i class="fas fa-phone mr-2"></i>01282 428579
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-blue-600 text-white p-6 rounded-lg mb-6">
+                            <h3 class="text-2xl font-bold mb-4">
+                                <i class="fas fa-ruler mr-2"></i>FREE MEASURING SERVICE
+                            </h3>
+                            <p class="mb-4">Get accurate measurements in the comfort of your own home</p>
+                            <p class="text-sm opacity-90">Available throughout Lancashire and surrounding areas</p>
+                        </div>
+
+                        <div class="bg-green-600 text-white p-6 rounded-lg mb-6">
+                            <h3 class="text-2xl font-bold mb-4">
+                                <i class="fas fa-heart mr-2"></i>NHS DISCOUNT
+                            </h3>
+                            <p class="text-3xl font-bold">10% OFF</p>
+                            <p class="text-sm opacity-90">For all NHS staff - thank you for your service</p>
+                        </div>
+
+                        <div class="bg-gray-800 text-white p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-blue-600 p-3 rounded-full hover:bg-blue-700 transition-colors">
+                                    <i class="fab fa-facebook-f text-xl"></i>
+                                </a>
+                                <a href="#" class="bg-pink-600 p-3 rounded-full hover:bg-pink-700 transition-colors">
+                                    <i class="fab fa-instagram text-xl"></i>
+                                </a>
+                                <a href="#" class="bg-blue-400 p-3 rounded-full hover:bg-blue-500 transition-colors">
+                                    <i class="fab fa-twitter text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map Section -->
+                <div class="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-up">
+                    <h2 class="text-3xl font-bold text-center mb-8">Find Us</h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-gray-200 h-64 rounded-lg flex items-center justify-center">
+                            <div class="text-center text-gray-600">
+                                <i class="fas fa-map-marked-alt text-4xl mb-4"></i>
+                                <p class="font-semibold">Lower Darwen Showroom</p>
+                                <p class="text-sm">Unit 1 Albert Mill, Albert Place</p>
+                                <p class="text-sm">Lower Darwen BB3 0QE</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-200 h-64 rounded-lg flex items-center justify-center">
+                            <div class="text-center text-gray-600">
+                                <i class="fas fa-map-marked-alt text-4xl mb-4"></i>
+                                <p class="font-semibold">Burnley Showroom</p>
+                                <p class="text-sm">16 Yorkshire Street</p>
+                                <p class="text-sm">Burnley BB11 2DJ</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="text-2xl font-bold text-blue-400 mb-4">
+                        <i class="fas fa-home mr-2"></i>RIGHT
+                    </div>
+                    <p class="text-gray-400 mb-4">Premium carpets and wood floors for your home</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-blue-400 hover:text-blue-300">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-pink-400 hover:text-pink-300">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-blue-300 hover:text-blue-200">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" onclick="showPage('home')" class="hover:text-white">Home</a></li>
+                        <li><a href="#" onclick="showPage('about')" class="hover:text-white">About Us</a></li>
+                        <li><a href="#" onclick="showPage('products')" class="hover:text-white">Products</a></li>
+                        <li><a href="#" onclick="showPage('contact')" class="hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Products</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Carpets</a></li>
+                        <li><a href="#" class="hover:text-white">Laminates</a></li>
+                        <li><a href="#" class="hover:text-white">Vinyls</a></li>
+                        <li><a href="#" class="hover:text-white">Wood Flooring</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact Info</h3>
+                    <div class="space-y-2 text-gray-400">
+                        <p><i class="fas fa-phone mr-2"></i>01254 660600</p>
+                        <p><i class="fas fa-phone mr-2"></i>01282 428579</p>
+                        <p><i class="fas fa-envelope mr-2"></i>info@rightcarpets.co.uk</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Right Carpets & Wood Floors. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Page Navigation
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update navigation
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            event.target.classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+            
+            // Re-initialize AOS for new page
+            AOS.refresh();
+            
+            // Close mobile menu if open
+            document.getElementById('mobile-menu').classList.add('hidden');
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // GSAP Animations
+        gsap.registerPlugin();
+
+        // Animate hero section on load
+        gsap.from(".gradient-bg h1", {duration: 1, y: 50, opacity: 0, ease: "power2.out"});
+        gsap.from(".gradient-bg p", {duration: 1, y: 30, opacity: 0, delay: 0.3, ease: "power2.out"});
+        gsap.from(".gradient-bg button", {duration: 1, y: 30, opacity: 0, delay: 0.6, ease: "power2.out"});
+
+        // Card hover animations
+        document.querySelectorAll('.card-hover').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                gsap.to(card, {duration: 0.3, y: -10, boxShadow: "0 20px 40px rgba(0,0,0,0.1)"});
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                gsap.to(card, {duration: 0.3, y: 0, boxShadow: "0 4px 6px rgba(0,0,0,0.1)"});
+            });
+        });
+
+        // Scroll animations
+        gsap.utils.toArray('section').forEach(section => {
+            gsap.from(section.children, {
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.2
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                navbar.classList.add('bg-white/95', 'backdrop-blur-sm');
+            } else {
+                navbar.classList.remove('bg-white/95', 'backdrop-blur-sm');
+            }
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your inquiry! We will contact you soon for your free estimate.');
+        });
+
+        // Product price animations
+        gsap.utils.toArray('.text-red-600').forEach(price => {
+            gsap.from(price, {
+                scrollTrigger: {
+                    trigger: price,
+                    start: "top 90%"
+                },
+                scale: 0.5,
+                opacity: 0,
+                duration: 0.5,
+                ease: "back.out(1.7)"
+            });
+        });
+
+        // Counter animation for statistics
+        function animateCounter(element, target) {
+            gsap.to(element, {
+                innerHTML: target,
+                duration: 2,
+                ease: "power2.out",
+                snap: { innerHTML: 1 },
+                scrollTrigger: {
+                    trigger: element,
+                    start: "top 80%"
+                }
+            });
+        }
+
+        // Initialize counters
+        document.addEventListener('DOMContentLoaded', () => {
+            const counters = document.querySelectorAll('[data-counter]');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-counter'));
+                animateCounter(counter, target);
+            });
+        });
+    </script>
+</body>
+</html> p-6 rounded-lg shadow-lg text-center">
+                                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=200&fit=crop" alt="Standard Twist Carpet" class="rounded-lg mb-4">
+                                <h3 class="text-xl font-bold mb-2">STANDARD TWISTS</h3>
+                                <p class="text-2xl font-bold text-red-600">From only £5.99/m²</p>
+                                <p class="text-sm text-gray-600 mt-2">Durable and affordable option for high-traffic areas</p>
+                            </div>
+                            
+                            <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                                <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=300&h=200&fit=crop" alt="Saxony Twist Carpet" class="rounded-lg mb-4">
+                                <h3 class="text-xl font-bold mb-2">SAXONY TWISTS</h3>
+                                <p class="text-2xl font-bold text-red-600">From only £9.99/m²</p>
+                                <p class="text-sm text-gray-600 mt-2">Luxurious feel with superior comfort and style</p>
+                            </div>
+                            
+                            <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                                <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=300&h=200&fit=crop" alt="Luxury Deep Pile Carpet" class="rounded-lg mb-4">
+                                <h3 class="text-xl font-bold mb-2">LUXURY DEEP PILE SAXONYS</h3>
+                                <p class="text-2xl font-bold text-red-600">From only £13.99/m²</p>
+                                <p class="text-sm text-gray-600 mt-2">Premium quality for the ultimate luxury experience</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Laminates Section -->
+                <div class="mb-16" data-aos="fade-up">
+                    <div class="bg-blue-100 p-8 rounded-lg">
+                        <h2 class="text-4xl font-bold text-red-600 mb-6 text-center">LAMINATES</h2>
+                        <p class="text-center text-gray-600 mb-8">Wide choice of colours available</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=500&h=300&fit=crop" alt="Laminate Flooring" class="rounded-lg mb-4">
+                            </div>
+                            <div class="flex flex-col justify-center">
+                                <div class="bg-blue-600 text-white p-6 rounded-lg text-center mb-4">
+                                    <h3 class="text-xl mb-2">Laminates</h3>
+                                    <p class="text-3xl font-bold">from £9.99/m²</p>
+                                </div>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li><i class="fas fa-check text-green-600 mr-2"></i>Water-resistant options available</li>
+                                    <li><i class="fas fa-check text-green-600 mr-2"></i>Easy to clean and maintain</li>
+                                    <li><i class="fas fa-check text-green-600 mr-2"></i>Realistic wood-look designs</li>
+                                    <li><i class="fas fa-check text-green-600 mr-2"></i>Quick and easy installation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vinyls Section -->
+                <div class="mb-16" data-aos="fade-up">
+                    <div class="bg-gray-100 p-8 rounded-lg">
+                        <h2 class="text-4xl font-bold text-red-600 mb-6 text-center">VINYLS</h2>
+                        <p class="text-center text-gray-600 mb-8">Wide choice of colours and designs</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="space-y-4">
+                                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                                    <h3 class="text-xl font-bold mb-2">Regular Vinyl</h3>
+                                    <p class="text-2xl font-bold text-blue-600">from £4.99/m²</p>
+                                </div>
+                                <div class="bg-red-600 text-white p-6 rounded-lg text-center">
+                                    <h3 class="text-xl font-bold mb-2">Vinyl Roll-ends</h3>
+                                    <p class="text-2xl font-bold">From Just £25.00</p>
+                                    <p class="text-sm opacity-90">Limited quantities - first come, first served!</p>
+                                </div>
+                            </div>
+                            <div>
+                                <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=500&h=300&fit=crop" alt="Vinyl Flooring" class="rounded-lg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Special Offers -->
+                <div class="bg-red-600 text-white p-8 rounded-lg" data-aos="fade-up">
+                    <h2 class="text-4xl font-bold text-center mb-8">SPECIAL OFFERS</h2>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-white text-gray-900 p-6 rounded-lg text-center">
+                            <h3 class="text-2xl font-bold text-blue-600 mb-4">Stairs & Landing Carpeted</h3>
+                            <div class="border-2 border-dashed border-red-500 p-4 rounded-lg">
+                                <p class="text-sm mb-2">Just for</p>
+                                <p class="text-4xl font-bold text-red-600">£150</p>
+                                <p class="text-lg font-bold text-blue-600">+ FREE FITTING</p>
+                                <p class="text-xs text-gray-600">(Based on 12m²)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white
