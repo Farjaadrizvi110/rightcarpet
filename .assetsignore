@@ -1,0 +1,4 @@
+.vscode
+wrangler.jsonc
+.git
+.gitignore
